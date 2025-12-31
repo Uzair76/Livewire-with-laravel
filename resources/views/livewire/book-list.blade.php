@@ -2,23 +2,35 @@
     <h1 class="text-3xl font-bold mb-2">Book List</h1>
     <p class="text-gray-600 mb-6">This is book list component</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-        @foreach ($books as $index => $book)
-            <div class="rounded-xl p-5 shadow text-white
-                {{ $index % 2 === 0 ? 'bg-indigo-600' : 'bg-emerald-600' }}">
-                
-                <h2 class="text-xl font-semibold mb-2">{{ $book->title }}</h2>
+    <!-- 3 per row -->
+    <div class="grid grid-cols-3 gap-6">
 
-                <p class="text-sm"><span class="font-semibold">Author:</span> {{ $book->author_name }}</p>
+        @foreach ($books as $book)
+            <div
+                class="relative rounded-lg shadow h-[200px] bg-cover bg-center overflow-hidden"
+                style="background-image: url('{{ $book->cover_image_path }}');"
+            >
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-black/50"></div>
 
-                @if($book->published_date)
-                    <p class="text-sm"><span class="font-semibold">Published:</span> {{ $book->published_date }}</p>
-                @endif
+                <!-- Content -->
+                <div class="relative z-10 p-4 h-full flex flex-col justify-between text-white">
+                    <div>
+                        <h2 class="text-lg font-semibold leading-tight">
+                            {{ $book->title }}
+                        </h2>
 
-                @if($book->summary)
-                    <p class="text-sm mt-3 opacity-95">{{ $book->summary }}</p>
-                @endif
+                        <p class="text-sm opacity-90">
+                            {{ $book->author_name }}
+                        </p>
+                    </div>
+
+                    <div class="text-sm font-medium">
+                        Published at : {{ $book->published_date }}
+                    </div>
+                </div>
             </div>
         @endforeach
+
     </div>
 </div>
