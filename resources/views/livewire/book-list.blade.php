@@ -1,5 +1,5 @@
 <div class="w-full">
-    <h1 class="text-3xl font-bold mb-2">Book List</h1>
+    <h1 class="text-3xl font-bold mb-2">Hi {{ "$name"}}</h1>
     <p class="text-gray-600 mb-6">This is book list component</p>
 
     <!-- 3 per row -->

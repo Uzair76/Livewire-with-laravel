@@ -8,6 +8,8 @@ use App\Models\Book;
 class BookList extends Component
 {
 
+    public $name ='book lists';
+
     public function render()
     {
         return view('livewire.book-list')->with([
