@@ -16,4 +16,5 @@ class BookList extends Component
             'books' => Book::all()
         ]);
     }
+    
 }
